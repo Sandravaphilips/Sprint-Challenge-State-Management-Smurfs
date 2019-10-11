@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-
+import { connect } from 'react-redux';
+import * as actionCreators from '../state/actionCreators';
 
 function App() {
   
@@ -28,4 +29,14 @@ function App() {
   
 }
 
-export default App;
+
+const mapStateToProps = state => {
+  return {
+    formValues: state.formValues,
+    serverProperties: state.serverProperties
+  }
+}
+export default connect(
+  mapStateToProps,
+  actionCreators,
+)(App);
