@@ -6,7 +6,7 @@ const initialFormValues = {
     height: ''
 }
 
-function formReducer(state= initialFormValues, action) {
+export function formReducer(state= initialFormValues, action) {
     switch(action.type) {
         case types.ON_INPUT_CHANGE:
             return {
@@ -27,7 +27,7 @@ const initialSubmitValues = {
     id: ''
 }
 
-function serverReducer(state = initialSubmitValues, action) {
+export function serverReducer(state = initialSubmitValues, action) {
     switch(action.type) {
         case types.ON_SERVER_FORM_SUBMIT:
             return {
