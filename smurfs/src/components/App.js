@@ -10,7 +10,6 @@ export function App({ formValues, changeInput, onFormSubmit, onServerSubmit, ser
   }
 
   useEffect(()=>{
-    // debugger
     saveData()
   })
 
@@ -39,7 +38,8 @@ export function App({ formValues, changeInput, onFormSubmit, onServerSubmit, ser
 
         <input type='submit' />
       </form>
-      {/* {console.log(serverProperties)} */}
+      {serverProperties.smurf.map(smurf=> 
+        <p key={smurf.id}>Hi, my name is {smurf.name}. I am {smurf.age} years old and I stand {smurf.height} tall</p>)}
     </div>
   );
   
