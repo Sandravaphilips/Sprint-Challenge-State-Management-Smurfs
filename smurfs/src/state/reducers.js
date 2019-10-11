@@ -19,3 +19,21 @@ function formReducer(state= initialFormValues, action) {
             return state;
     }
 }
+
+const initialSubmitValues = {
+    name: '',
+    age: '',
+    height: '',
+    id: ''
+}
+
+function serverReducer(state = initialSubmitValues, action) {
+    switch(action.type) {
+        case types.ON_SERVER_FORM_SUBMIT:
+            return {
+                ...state, name: action.payload.name, age: action.payload.age, height: action.payload.height
+            }
+        default:
+            return state;
+    }
+}
