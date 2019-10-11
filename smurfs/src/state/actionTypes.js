@@ -1,0 +1,6 @@
+
+export const ON_FORM_SUBMIT = 'ON_FORM_SUBMIT';
+export const ON_INPUT_CHANGE = 'ON_INPUT_CHANGE';
+export const ON_SERVER_FORM_SUBMIT = 'ON_SERVER_FORM_SUBMIT';
+export const FETCH_DATA = 'FETCH_DATA';
+export const SAVE_DATA = 'SAVE_DATA';
