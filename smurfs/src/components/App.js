@@ -3,17 +3,22 @@ import "./App.css";
 import { connect } from 'react-redux';
 import * as actionCreators from '../state/actionCreators';
 
-function App({ formValues, changeInput }) {
+function App({ formValues, changeInput, onFormSubmit }) {
   
   function onInputChange(event) {
     changeInput(event.target)
+  }
+
+  function on_Form_Submit() {
+    // event.preventDefault();
+    onFormSubmit()
   }
 
   return (
     <div className="App">
       <h1>SMURFS! 2.0 W/ Redux</h1>
       
-      <form>
+      <form onSubmit={on_Form_Submit} >
         <label>Name
           <input value={formValues.name} onChange={onInputChange} name='name' />
         </label><br />

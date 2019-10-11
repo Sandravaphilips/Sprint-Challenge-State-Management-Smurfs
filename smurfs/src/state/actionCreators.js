@@ -9,3 +9,9 @@ export function changeInput(target) {
         },
       };
 }
+
+export function onFormSubmit() {
+    return {
+        type: types.ON_FORM_SUBMIT
+    }
+}
