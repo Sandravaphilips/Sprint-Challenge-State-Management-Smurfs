@@ -21,17 +21,23 @@ export function formReducer(state= initialFormValues, action) {
 }
 
 const initialSubmitValues = {
-    name: '',
+  smurf:  [
+    {name: '',
     age: '',
     height: '',
-    id: ''
+    id: ''}
+  ]
 }
 
 export function serverReducer(state = initialSubmitValues, action) {
     switch(action.type) {
         case types.ON_SERVER_FORM_SUBMIT:
             return {
-                ...state, name: action.payload.name, age: action.payload.age, height: action.payload.height
+                ...state, smurf: [{...[action.payload], id: Date.now()}]
+            }
+        case types.FETCH_DATA: 
+            return {
+                ...state, smurf: action.payload
             }
         default:
             return state;
