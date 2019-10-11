@@ -2,45 +2,42 @@ import React, {useEffect} from "react";
 import "./App.css";
 import { connect } from 'react-redux';
 import * as actionCreators from '../state/actionCreators';
+import Form from "./Form";
+import Smurfs from "./Smurfs";
+import styled from "styled-components";
+
+const AppStyle = styled.div`
+  display: flex;
+  flex-direction:column;
+  padding: 20px 10%;
+`
 
 export function App({ formValues, changeInput, onFormSubmit, onServerSubmit, serverProperties, saveData }) {
   
-  function onInputChange(event) {
-    changeInput(event.target)
-  }
-
   useEffect(()=>{
     saveData()
   })
+
+  function onInputChange(event) {
+    changeInput(event.target)
+  }
 
   function on_Form_Submit() {
     // event.preventDefault();
     onFormSubmit()
     onServerSubmit(formValues)
   }
-  // if(!serverProperties.smurf) return <h3>Loading...</h3>
+
+  if(!serverProperties.smurfs) return <h3>Loading...</h3>
+
   return (
-    <div className="App">
+    <AppStyle className="App">
       <h1>SMURFS! 2.0 W/ Redux</h1>
       
-      <form onSubmit={on_Form_Submit} >
-        <label>Name
-          <input value={formValues.name} onChange={onInputChange} name='name' />
-        </label><br />
+      <Form formValues={formValues} onInputChange={onInputChange} on_Form_Submit={on_Form_Submit}/>
 
-        <label>Age
-          <input value={formValues.age} onChange={onInputChange} name='age' />
-        </label><br />
-
-        <label>Height
-          <input value={formValues.height} onChange={onInputChange} name='height' />
-        </label><br />
-
-        <input type='submit' />
-      </form>
-      {serverProperties.smurf.map(smurf=> 
-        <p key={smurf.id}>Hi, my name is {smurf.name}. I am {smurf.age} years old and I stand {smurf.height} tall</p>)}
-    </div>
+      <Smurfs serverProperties={serverProperties} />
+    </AppStyle>
   );
   
 }

@@ -18,7 +18,7 @@ export function onFormSubmit() {
 }
 
 export const onServerSubmit = (serverProperties) => dispatch => {
-    // debugger
+    
     axios.post('http://localhost:3333/smurfs', serverProperties)
     .then(response => {
         console.log(response)
